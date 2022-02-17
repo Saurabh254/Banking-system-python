@@ -79,7 +79,7 @@ class database:
             elif user_input == 6:
                 while True:
                     old_pin = input("Enter Your old Pin: ")
-                    if old_pin.isdigit() and len(old_pin) ==4:
+                    if old_pin.isdigit() and len(old_pin) == 4:
                         old_pin = int(old_pin)
                         pass
                     else:
