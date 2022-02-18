@@ -12,7 +12,8 @@ def frontend(userlist: dict):
         account_holderName = input("Enter Account Holder's Name: ")
         if account_holderName in userlist:
             break
-        elif userPin.lower() in ["exit", "close", "q"]:
+        elif account_holderName.lower() in ["exit", "close", "q"]:
+            print("Program closed")
             exit()
         else:
             print(f"Mentioned user ({account_holderName}) not found")

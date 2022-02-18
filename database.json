@@ -3,7 +3,7 @@
         "Pin": 1234,
         "Name": "Saurabh",
         "Age": 18,
-        "balance": 10000,
+        "balance": 5069,
         "dob": "19-03-2003",
         "Last_Transactions": [
             "19-03-2003 Account Insurance",
@@ -12,10 +12,10 @@
         ]
     },
     "Rohan": {
-        "Pin": 2190,
+        "Pin": 1234,
         "Name": "Rohan",
         "Age": 25,
-        "balance": 5000,
+        "balance": 5002,
         "dob": "19-03-2003",
         "Last_Transactions": [
             "19-03-2022 Account Opening",
