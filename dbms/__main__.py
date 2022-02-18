@@ -1,30 +1,33 @@
 from .utils import frontend, balance, userinput
+from . import logging
+user = {}
 
-user = {
-    "Saurabh": {"Pin": 1234,
-                "Name": "Saurabh",
-                "Age": 18,
-                "balance": 100000,
-                "dob": "19-03-2003",
-                "Last_Transactions": ["19-03-2003 Account Insurance", "24-03-2004 Withdrawl 5000 at SBI Burhar", "05-07-2008 Deposited 10000 /~ INR"]
-                },
-    "Rohan": {"Pin": 7657,
-                "Name": "Rohan",
-                "Age": 25,
-                "balance": 5000,
-                "dob": "19-03-2003",
-                "Last_Transactions": ["19-03-2022 Account Opening", "24-03-2022 Withdrawl 5000 at SBI Amlai", "05-07-2022 Deposited 10 /~ INR"]
-                },
-
-}
-
-
+import json
+try:
+    with open("database.json", "r") as f:
+        user = json.loads(f.read())
+except Exception as E:
+    logging.warning(f" : {E}")
 class database:
     def __init__(self) -> None:
-        
-        user_choice, AcHolderName = frontend(user)
+        try:
+            user_choice, AcHolderName = frontend(userlist= user)
+        except Exception as E:
+            logging.warning(f" : {E}")
 
-        userinput(user=user, user_input=user_choice, balance=balance, username=AcHolderName)
+        try:
+            userinput(user=user, user_input=user_choice, balance=balance, username=AcHolderName)
+        except Exception as E:
+            logging.warning(f" : {E}")    
+
+        try:
+            with open("database.json", "w") as f:
+                f.write(json.dumps(user, indent=4))
+        except Exception as E:
+            logging.warning(f" : E")
 
 if __name__ == "__main__":
-    database()
+    try:
+        database()
+    except Exception as E:
+        logging.warning(f" : {E}")
