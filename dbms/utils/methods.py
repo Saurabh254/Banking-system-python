@@ -72,11 +72,13 @@ def userinput(user: dict, user_input: int, balance, username: str):
                             continue
                     while True:
                         new_pin = input("Enter Your new pin: ")
-                        if new_pin.isdigit() and len(new_pin) == 4:
-                            user[username]["Pin"] = "{:04}".format(new_pin)
-
+                        if new_pin[0] == "0":
+                            print("Pin starting with 0 is not allowed")
+                            continue
+                        elif new_pin.isdigit() and len(new_pin) == 4:
+                            user[username]["Pin"] = int(new_pin)
                             break
                         else:
                             print("Enter numeric Pin")
                             continue
-                    print(user[username]["Pin"])
+                    print("Pin changed successfully!")
