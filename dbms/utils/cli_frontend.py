@@ -1,6 +1,5 @@
 
-
-def frontend():
+def frontend(userlist: dict):
 
     options = ["Check balance",
                "Withdrawl",
@@ -8,8 +7,45 @@ def frontend():
                "Transaction details (upto 5 transaction)",
                "Manage Transaction History",
                "Change Pin"]
+    print("Welcome to Saurabh's Bank: \n")
+    while True:
+        account_holderName = input("Enter Account Holder's Name: ")
+        if account_holderName in userlist:
+            break
+        else:
+            print(f"Mentioned user ({account_holderName}) not found")
+            continue
+    while True:
+        userPin = input(f"Enter {account_holderName}'s Ac Pin: ")
+        if userPin.isdigit() and len(userPin) == 4:
+            if int(userPin) == userlist[account_holderName]["Pin"]:
+               break
+            else:
+                print("Wrong Pin entered ")
+                continue
+        elif userPin.lower() in ["exit", "close", "q"]:
+            exit()
+        else:
+            print("Enter 4 digit numeric Pin")
+            continue
 
-    print("Welcome to Saurabh's Bank: \n\n Select method:")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     for option, count in zip(options, list(range(1, len(options)+1))):
         print(f"{count}. {option}", end="  ")
 
@@ -23,11 +59,11 @@ def frontend():
                 break
 
             else:
-                print("Enter Correct input: ")
+                print("Enter Correct input ")
                 continue
 
         if (1 <= choosen_option <= len(options)+1):
-            return choosen_option
+            return choosen_option, account_holderName
         else:
             print(f"Enter integer digits in between 1, {len(options)+1}")
             continue
