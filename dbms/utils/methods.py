@@ -1,7 +1,7 @@
 def userinput(user: dict, user_input: int, balance, username: str):
     if user_input != None:
         if user_input == 1:
-            print(balance(user_dict=user, user_name=username))
+            print(f"{username}: Your Account balance is {balance(user_dict=user, user_name=username)}")
 
         elif user_input == 2:
             user_bal = balance(user_dict=user, user_name=username)
