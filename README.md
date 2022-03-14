@@ -1,5 +1,3 @@
-# Banking-system-python
-Python banking system
 
 
 <h1 style='text=align: center;' > Banking System Python </h1>
